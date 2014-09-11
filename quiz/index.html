@@ -1,8 +1,9 @@
 <html>
 <head>
     <script src="newsquiz/demo/js/jquery.js"></script>
-    <script src="newsquiz/demo/js/tabletop.js"></script>
-	<script src="newsquiz/demo/js/newsquiz.min.js"></script>
+    <script src="tabletop.js"></script>
+	<script src="underscore.js"></script>
+	<script src="newsquiz.js"></script>
 
 <!-- bootstrap.min.css is the barebones; bootstrap-responsive.css makes the quiz device-friendly -->            
     <link href="newsquiz/demo/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -36,7 +37,7 @@
 			alert("I need an URL as a GET parameter named quiz");
 			return;
 		}
-                var quiz = jQuery('#quiz_container').quiz(url); //your published spreadsheet key or URL goes here
+                var quiz = jQuery('#quiz_container').quiz(url, {not_finished_html: ""}); //your published spreadsheet key or URL goes here
 		})();
         </script>
     </body>
