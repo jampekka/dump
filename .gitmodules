@@ -1,0 +1,3 @@
+[submodule "quiz/newsquiz"]
+	path = quiz/newsquiz
+	url = https://github.com/motherjones/newsquiz.git

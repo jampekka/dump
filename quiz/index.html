@@ -1,0 +1,43 @@
+<html>
+<head>
+    <script src="newsquiz/demo/js/jquery.js"></script>
+    <script src="newsquiz/demo/js/tabletop.js"></script>
+	<script src="newsquiz/demo/js/newsquiz.min.js"></script>
+
+<!-- bootstrap.min.css is the barebones; bootstrap-responsive.css makes the quiz device-friendly -->            
+    <link href="newsquiz/demo/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="newsquiz/demo/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
+    
+<!-- Custom stylesheet. Use this or create your own -->
+	<link href="newsquiz/demo/css/style.css" rel="stylesheet" media="screen">
+</head>
+    <body>
+	
+<!-- tabletop.js renders your spreadsheet data as HTML. Simply add a div below to wrap the whole thing -->
+        <div id="quiz_container"></div>
+        <script type="text/javascript">
+		(function(){
+		
+		// Why on earth this isn't in jQuery!?!
+		var q = window.location.search.substring(1);
+		var params = {};
+		// Why no sane foreach loop :'(
+		$.each(q.split('&'), function(index, value) {
+			// Why no splats :'( Why do people code with this crap
+			// voluntarily when there's eg. coffeescript?
+			var tmp = value.split('=', 2);
+			if(tmp.length == 2) {
+				params[tmp[0]] = tmp[1];
+			}
+		});
+		
+		var url = params['quiz'];
+		if(!url) {
+			alert("I need an URL as a GET parameter named quiz");
+			return;
+		}
+                var quiz = jQuery('#quiz_container').quiz(url); //your published spreadsheet key or URL goes here
+		})();
+        </script>
+    </body>
+</html>
