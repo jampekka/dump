@@ -10,12 +10,14 @@
     <link href="newsquiz/demo/css/bootstrap-responsive.css" rel="stylesheet" media="screen">
     
 <!-- Custom stylesheet. Use this or create your own -->
-	<link href="newsquiz/demo/css/style.css" rel="stylesheet" media="screen">
+	<link href="style.css" rel="stylesheet" media="screen">
 </head>
     <body>
 	
+	<h2 id="page_title"></h2>
 <!-- tabletop.js renders your spreadsheet data as HTML. Simply add a div below to wrap the whole thing -->
-        <div id="quiz_container"></div>
+        <div id="quiz_container">
+	</div>
         <script type="text/javascript">
 		(function(){
 		
@@ -28,11 +30,14 @@
 			// voluntarily when there's eg. coffeescript?
 			var tmp = value.split('=', 2);
 			if(tmp.length == 2) {
-				params[tmp[0]] = tmp[1];
+				params[decodeURIComponent(tmp[0])] = decodeURIComponent(tmp[1]);
 			}
 		});
+
+		$("#page_title").html(params.title);
+		console.log(params);
 		
-		var url = params['quiz'];
+		var url = params.quiz;
 		if(!url) {
 			alert("I need an URL as a GET parameter named quiz");
 			return;
