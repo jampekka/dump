@@ -80,7 +80,6 @@
 /*more styling for answers*/
 
 .quiz_container .revealed_answer p {
-	font-size: 1.2em;
 	line-height: 1.5em;
 	padding: 0em 0 0 0;
 	margin: 0;
@@ -170,6 +169,10 @@
     left: 0;
     height: 100%;
     width: 100%;
+}
+
+.text {
+	font-weight: normal;
 }
 
 /* media queries */
